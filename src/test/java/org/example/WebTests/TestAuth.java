@@ -9,10 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,7 +40,7 @@ public class TestAuth {
 
 //        ввод в поле username строки меньше 2-х символов
         username.clear();
-        username.sendKeys(ConfProp.getProperty("12"));
+        username.sendKeys("12");
         btn.click();
         WebElement errorBlock = driver.findElement(By.cssSelector(".error-block"));
         String errorText = errorBlock.getText();
@@ -58,7 +54,7 @@ public class TestAuth {
 
         //        ввод в поле username строки больше 20-и символов
         username.clear();
-        username.sendKeys(ConfProp.getProperty("123TestTestTestTestTest"));
+        username.sendKeys("123TestTestTestTestTest");
         btn.click();
         WebElement errorBlock = driver.findElement(By.cssSelector(".error-block"));
         String errorText = errorBlock.getText();
